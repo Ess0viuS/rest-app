@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/intro.css">
+    <script src="js/db.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <title>Hello, world!</title>
+
+    <style>
+        .renk {
+            width: 19rem;
+        }
+
+        .deneme {
+            height: 100%;
+            width: 10rem;
+        }
+
+        img {
+            height: 17rem;
+            width: 100%;
+        }
+
+        body {
+            background-color: #EBE5E3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-2" id="categories">
+                <ul class="list-group" id="category">
+                    <li onclick=secenek(cat1) class="list-group-item li">KAHVALTI</li>
+                    <li onclick=secenek(cat2) class="list-group-item li">TOST</li>
+                    <li onclick=secenek(cat3) class="list-group-item li">BAŞLANGIÇ</li>
+                    <li onclick=secenek(cat4) class="list-group-item li">SALATA</li>
+                    <li onclick=secenek(cat5) class="list-group-item li">PİZZA</li>
+                    <li onclick=secenek(cat6) class="list-group-item li">BURGER</li>
+                    <li onclick=secenek(cat7) class="list-group-item li">MAKARNA</li>
+                    <li onclick=secenek(cat8) class="list-group-item li">ET</li>
+                    <li onclick=secenek(cat9) class="list-group-item li">TAVUK</li>
+                    <li onclick=secenek(cat10) class="list-group-item li">BALIK</li>
+                    <li onclick=secenek(cat11) class="list-group-item li">TATLI</li>
+                    <li onclick=secenek(cat12) class="list-group-item li">KAHVE</li>
+                    <li onclick=secenek(cat13) class="list-group-item li">SOĞUK KAHVE</li>
+                    <li onclick=secenek(cat14) class="list-group-item li">ÇAY</li>
+                    <li onclick=secenek(cat15) class="list-group-item li">BASİLUR TEA</li>
+                    <li onclick=secenek(cat16) class="list-group-item li">THE HOUSE SPECİALS</li>
+                    <li onclick=secenek(cat17) class="list-group-item li">THE HOUSE SMOOTHİES & DETOX</li>
+                    <li onclick=secenek(cat18) class="list-group-item li">SOĞUK İÇECEKLER</li>
+                </ul>
+            </div>
+            <div class="col-10">
+                <div class="row" id="products">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script>
+        window.onload = function () {
+            secenek(cat1)
+        }
+    </script>
+
+    <script>
+        "use strict"
+
+        function secenek(event) {
+            if (event) {
+                document.getElementById("products").innerHTML = ""
+            }
+            event.map(e => {
+                var panelDiv = document.querySelector("#products")
+                var etiket = document.createElement("div")
+                var etiketic = document.createElement("div")
+                var img = document.createElement("img")
+                var divH5 = document.createElement("h5")
+                var divP = document.createElement("p")
+                var divH6 = document.createElement("h6")
+                var divH3 = document.createElement("h3")
+
+                divP.classList = "card-text"
+                divH5.classList = "card-title"
+                etiket.classList = "renk card"
+                etiketic.classList = "card-body"
+                img.classList = "card-img-top"
+
+                divH5.innerHTML = e.name
+                divH6.innerHTML = e.content
+                divH3.innerHTML = e.price
+
+                img.setAttribute("src", e.img)
+
+                divP.appendChild(divH6)
+                divP.appendChild(divH3)
+                etiketic.appendChild(divH5)
+                etiketic.appendChild(divP)
+                etiket.appendChild(img)
+                etiket.appendChild(etiketic)
+                panelDiv.appendChild(etiket)
+
+            })
+
+        }
+
+    </script>
+
+</body>
+
+</html>
